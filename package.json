@@ -4,7 +4,7 @@
     "description": "Package for creating endpoint on server side",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
-    "repository": "https://github.com/NexCodePL/endpoint-client.git",
+    "repository": "https://github.com/NexCodePL/endpoint-server.git",
     "author": "Alexander Stefański <alex@nexcode.pl>",
     "license": "MIT",
     "keywords": [
@@ -24,10 +24,10 @@
         "postversion": "git push && git push --tags"
     },
     "dependencies": {
-        "@types/node": "^14.14.3",
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "@types/node": "^14.14.3",
         "@types/express": "^4.17.8",
         "@typescript-eslint/eslint-plugin": "^4.5.0",
         "@typescript-eslint/parser": "^4.5.0",
