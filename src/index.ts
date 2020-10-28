@@ -1,2 +1,2 @@
 export * from "./endpoint";
-export * from "./validate";
+export * from "./error";

@@ -1,13 +1,12 @@
 import { Router, Request, Response } from "express";
+import { validateObject, Base, ObjectValidateDefinition } from "@nexcodepl/type-checking";
 
 import {
     EndpointDefinition,
     EndpointDefinitionGetResponse,
     EndpointDefinitionGetData,
     EndpointDefinitionGetParams,
-} from "./endpoint.types";
-import { validateObject } from "./validate";
-import { Base, ObjectValidateDefinition } from "./validate.types";
+} from "@nexcodepl/endpoint-types";
 
 interface EndpointAPIEndpointResponseNotSentSuccess<
     TEndpointDefinition extends EndpointDefinition<any, any, any, boolean>
