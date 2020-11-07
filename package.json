@@ -1,6 +1,6 @@
 {
     "name": "@nexcodepl/endpoint-server",
-    "version": "1.0.4",
+    "version": "1.0.8",
     "description": "Package for creating endpoint on server side",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -24,7 +24,7 @@
         "postversion": "git push && git push --tags"
     },
     "dependencies": {
-        "@nexcodepl/type-checking": "^1.0.1",
+        "@nexcodepl/type-checking": "^1.0.5",
         "express": "^4.17.1"
     },
     "devDependencies": {

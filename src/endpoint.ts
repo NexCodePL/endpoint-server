@@ -45,6 +45,8 @@ type EndpointAPIEndpointResponse<TEndpointDefinition extends EndpointDefinition<
     | EndpointAPIEndpointResponseNotSentError
     | EndpointAPIEndpointResponseSent;
 
+type ValidateDefinitionOrUndefined<T> = T extends Base<T> ? ObjectValidateDefinition<T> : undefined;
+
 export function EndpointAPI<TEndpointDefinition extends EndpointDefinition<any, any, any, boolean>>(
     router: Router,
     endpointDefinition: TEndpointDefinition,
@@ -54,16 +56,16 @@ export function EndpointAPI<TEndpointDefinition extends EndpointDefinition<any, 
         params?: EndpointDefinitionGetParams<TEndpointDefinition>,
         data?: EndpointDefinitionGetData<TEndpointDefinition>
     ) => Promise<EndpointAPIEndpointResponse<TEndpointDefinition>>,
-    validateParams?: ObjectValidateDefinition<Base<EndpointDefinitionGetParams<TEndpointDefinition>>>,
-    validateData?: ObjectValidateDefinition<Base<EndpointDefinitionGetData<TEndpointDefinition>>>
+    validateParams?: ObjectValidateDefinition<EndpointDefinitionGetParams<TEndpointDefinition>>,
+    validateData?: ObjectValidateDefinition<EndpointDefinitionGetData<TEndpointDefinition>>
 ): void {
     const endpointFunction = async (req: Request, res: Response) => {
         const validationResultParams = validateParams
-            ? validateObject(req.query as Base<EndpointDefinitionGetParams<TEndpointDefinition>>, validateParams)
+            ? validateObject(req.query as EndpointDefinitionGetParams<TEndpointDefinition>, validateParams)
             : { isValid: true, errors: [] };
 
         const validationResultData = validateData
-            ? validateObject(req.query as Base<EndpointDefinitionGetData<TEndpointDefinition>>, validateData)
+            ? validateObject(req.body as EndpointDefinitionGetData<TEndpointDefinition>, validateData)
             : { isValid: true, errors: [] };
 
         if (!validationResultData.isValid && !validationResultParams.isValid) {

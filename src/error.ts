@@ -14,6 +14,21 @@ export interface ErrorCase {
     handler: (error: any) => ErrorDataBase;
 }
 
+export class ErrorBase extends Error {
+    public code: number;
+    public errorMessage: string;
+    public errorCode: string;
+    public errorData?: any;
+
+    constructor(code: number, errorCode: string, errorMessage: string, errorData?: any) {
+        super(errorMessage);
+        this.code = code;
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+        this.errorData = errorData;
+    }
+}
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function EndpointError(error: any, errorCases?: ErrorCase[]): ErrorData {
     if (!errorCases) errorCases = [];
