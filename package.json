@@ -1,6 +1,6 @@
 {
     "name": "@nexcodepl/endpoint-server",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Package for creating endpoint on server side",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",

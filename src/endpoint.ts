@@ -69,6 +69,7 @@ export function EndpointAPI<TEndpointDefinition extends EndpointDefinition<any, 
             : { isValid: true, errors: [] };
 
         if (!validationResultData.isValid && !validationResultParams.isValid) {
+            res.statusCode = 400;
             res.send({
                 errorMessage: `Invalid Data and Params.`,
                 errorCode: "InvalidDataAndParams",
@@ -78,6 +79,7 @@ export function EndpointAPI<TEndpointDefinition extends EndpointDefinition<any, 
                 },
             });
         } else if (!validationResultData.isValid) {
+            res.statusCode = 400;
             res.send({
                 errorMessage: `Invalid Data.`,
                 errorCode: "InvalidData",
@@ -86,6 +88,7 @@ export function EndpointAPI<TEndpointDefinition extends EndpointDefinition<any, 
                 },
             });
         } else if (!validationResultParams.isValid) {
+            res.statusCode = 400;
             res.send({
                 errorMessage: `Invalid Params.`,
                 errorCode: "InvalidParams",
